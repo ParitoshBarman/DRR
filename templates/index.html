@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test</title>
+</head>
+<body>
+    <h1>Hi bro.....</h1>
+    {% for haDATA in DRRdb %}
+    <h3>{{haDATA.startDate}}</h3>
+    {% endfor %}
+    <script>
+        let x = {{DRRdb}};
+        console.log(x);
+        for(let i in x){
+            console.log(i["startDate"]);
+        }
+    </script>
+</body>
+</html>

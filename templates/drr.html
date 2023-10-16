@@ -1,0 +1,172 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--Font Awesome CDN-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <title>JavaScript CURD</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    
+    <div class="container">
+
+        <header>
+
+            <div class="filterEntries">
+                <div class="entries">
+                    Show <select name="showAmount" id="table_size">
+                        <option value="10">10</option>
+                        <option value="20">20</option>
+                        <option value="50">50</option>
+                        <option value="100">100</option>
+                    </select> entries
+                </div>
+
+                <div class="filter">
+                    <label for="search">Search:</label>
+                    <input type="search" name="" id="search" placeholder="Enter start date">
+                </div>
+            </div>
+
+            <div class="addMemberBtn">
+                <button>New member</button>
+            </div>
+
+        </header>
+
+
+        <table>
+
+            <thead>
+                <tr class="heading">
+                    <th>Id</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                    <th>Month,Year</th>
+                    <th>Dates Excluded</th>
+                    <th>Number of Days</th>
+                    <th>Lead Count</th>
+                    <th>Expected DRR</th>
+                    <th>Last Updated</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody class="userInfo">
+                {% for DRRdbElement in DRRdb %}
+                <tr class="heading">
+                    <td>{{DRRdbElement.slID}}</td>
+                    <td>{{DRRdbElement.startDate}}</td>
+                    <td>{{DRRdbElement.endDate}}</td>
+                    <td>{{DRRdbElement.month_year}}</td>
+                    <td>{{DRRdbElement.datesExcluded}}</td>
+                    <td>{{DRRdbElement.numberOfDays}}</td>
+                    <td>{{DRRdbElement.leadCount}}</td>
+                    <td>{{DRRdbElement.expectedDrr}}</td>
+                    <td>{{DRRdbElement.lastUpdatedDate}} {{DRRdbElement.lastUpdatedTime}}</td>
+                    <td>Action</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+
+        </table>
+         <footer>
+            <span class="showEntries">Showing {{fromEntry}} to {{toEntry}} of {{totalEntries}} entries</span>
+            <div class="pagination">
+                <!-- <button>Prev</button>
+                <button class="active">1</button>
+                <button>2</button>
+                <button>3</button>
+                <button>4</button>
+                <button>5</button>
+                <button>Next</button> -->
+            </div>
+        </footer>
+    </div>
+
+
+    <!--Popup Form-->
+
+    <div class="dark_bg">
+
+        <div class="popup">
+             <header>
+                <h2 class="modalTitle">Add Details</h2>
+                <button class="closeBtn">&times;</button>
+             </header>
+
+             
+                    
+                       
+                        <img src="./img/pic1.png" alt="" width="0" height="0" class="img">
+                    
+                    <div class="body">
+                        <form action="#" id="myForm">
+                    <div class="inputFieldContainer">
+
+                        <div class="nameField">
+                            <div class="form_control">
+                                <label for="id">ID:</label>
+                                <input type="number" name="" id="id" required>
+                            </div>
+
+                            <div class="form_control">
+                                <label for="sdate">Start Date:</label>
+                                <input type="date" name="" id="sdate" required>
+                            </div>
+                        </div>
+
+                       
+                            <div class="form_control">
+                                <label for="edate">End Date:</label>
+                                <input type="date" name="" id="edate" required>
+                            </div>
+
+                            <div class="form_control">
+                                <label for="monthyear">Month, Year:</label>
+                                <input type="number" name="" id="monthyear" required>
+                            </div>
+                      
+
+                     
+                            <div class="form_control">
+                                <label for="datexu">Dates Excluded:</label>
+                                <input type="text" name="" id="datexu" required>
+                            </div>
+
+                            <div class="form_control">
+                                <label for="nofdays">Number of Days:</label>
+                                <input type="number" name="" id="nofdays" required>
+                            </div>
+                        
+
+                        <div class="form_control">
+                            <label for="leadcnt">Lead Count:</label>
+                            <input type="number" name="" id="leadcnt" required>
+                        </div>
+
+                        <div class="form_control">
+                            <label for="expDRR">Expected DRR:</label>
+                            <input type="number" name="" id="expDRR" required>
+                        </div>
+                    </div>
+                </form>
+             </div>
+
+             <footer class="popupFooter">
+                <button form="myForm" class="submitBtn">Submit</button>
+             </footer>
+        </div>
+
+    </div>
+
+
+    <script src="{% static 'indx.js' %}"></script>
+</body>
+</html>
+
+
