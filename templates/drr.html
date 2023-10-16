@@ -1,18 +1,22 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!--Font Awesome CDN-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <title>JavaScript CURD</title>
+    <title>DRR</title>
     <link rel="stylesheet" href="{% static 'style.css' %}">
 </head>
+
 <body>
-    
+
     <div class="container">
 
         <header>
@@ -34,7 +38,7 @@
             </div>
 
             <div class="addMemberBtn">
-                <button>New member</button>
+                <button onclick="showFrom()">New member</button>
             </div>
 
         </header>
@@ -71,10 +75,10 @@
                     <td>Action</td>
                 </tr>
                 {% endfor %}
-                </tbody>
+            </tbody>
 
         </table>
-         <footer>
+        <footer>
             <span class="showEntries">Showing {{fromEntry}} to {{toEntry}} of {{totalEntries}} entries</span>
             <div class="pagination">
                 <!-- <button>Prev</button>
@@ -94,18 +98,18 @@
     <div class="dark_bg">
 
         <div class="popup">
-             <header>
+            <header>
                 <h2 class="modalTitle">Add Details</h2>
                 <button class="closeBtn">&times;</button>
-             </header>
+            </header>
 
-             
-                    
-                       
-                        <img src="./img/pic1.png" alt="" width="0" height="0" class="img">
-                    
-                    <div class="body">
-                        <form action="#" id="myForm">
+
+
+
+            <img src="./img/pic1.png" alt="" width="0" height="0" class="img">
+
+            <div class="body">
+                <form action="#" id="myForm">
                     <div class="inputFieldContainer">
 
                         <div class="nameField">
@@ -120,29 +124,29 @@
                             </div>
                         </div>
 
-                       
-                            <div class="form_control">
-                                <label for="edate">End Date:</label>
-                                <input type="date" name="" id="edate" required>
-                            </div>
 
-                            <div class="form_control">
-                                <label for="monthyear">Month, Year:</label>
-                                <input type="number" name="" id="monthyear" required>
-                            </div>
-                      
+                        <div class="form_control">
+                            <label for="edate">End Date:</label>
+                            <input type="date" name="" id="edate" required>
+                        </div>
 
-                     
-                            <div class="form_control">
-                                <label for="datexu">Dates Excluded:</label>
-                                <input type="text" name="" id="datexu" required>
-                            </div>
+                        <div class="form_control">
+                            <label for="monthyear">Month, Year:</label>
+                            <input type="number" name="" id="monthyear" required>
+                        </div>
 
-                            <div class="form_control">
-                                <label for="nofdays">Number of Days:</label>
-                                <input type="number" name="" id="nofdays" required>
-                            </div>
-                        
+
+
+                        <div class="form_control">
+                            <label for="datexu">Dates Excluded:</label>
+                            <input type="text" name="" id="datexu" required>
+                        </div>
+
+                        <div class="form_control">
+                            <label for="nofdays">Number of Days:</label>
+                            <input type="number" name="" id="nofdays" required>
+                        </div>
+
 
                         <div class="form_control">
                             <label for="leadcnt">Lead Count:</label>
@@ -155,23 +159,25 @@
                         </div>
                     </div>
                 </form>
-             </div>
+            </div>
 
-             <footer class="popupFooter">
+            <footer class="popupFooter">
                 <button form="myForm" class="submitBtn">Submit</button>
-             </footer>
+            </footer>
         </div>
 
     </div>
 
-<script>
-    function selectAmount(ans){
-        console.log("Hi")
-        console.log(ans)
-    }
-</script>
+    <script>
+        function selectAmount(ans) {
+            console.log("Hi")
+            console.log(ans)
+        }
+        function showFrom() {
+            console.log("Working..")
+        }
+    </script>
     <script src="{% static 'indx.js' %}"></script>
 </body>
+
 </html>
-
-
