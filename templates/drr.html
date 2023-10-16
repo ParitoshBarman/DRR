@@ -19,7 +19,7 @@
 
             <div class="filterEntries">
                 <div class="entries">
-                    Show <select name="showAmount" id="table_size">
+                    Show <select name="showAmount" id="table_size" onchange="selectAmount(this)">
                         <option value="10">10</option>
                         <option value="20">20</option>
                         <option value="50">50</option>
@@ -164,7 +164,12 @@
 
     </div>
 
-
+<script>
+    function selectAmount(ans){
+        console.log("Hi")
+        console.log(ans)
+    }
+</script>
     <script src="{% static 'indx.js' %}"></script>
 </body>
 </html>
