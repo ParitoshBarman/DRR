@@ -211,7 +211,7 @@ footer .pagination button{
     border-bottom-left-radius: 5px;
     border-left: 1px solid var(--dark6);
     opacity: 0.6;
-    pointer-events: none;
+    /* pointer-events: none; */
 }
 
 .pagination button:last-child{
@@ -219,7 +219,7 @@ footer .pagination button{
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
     opacity: 0.6;
-    pointer-events: none;
+    /* pointer-events: none; */
 }
 
 .pagination button.active, .pagination button:hover{

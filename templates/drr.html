@@ -23,7 +23,7 @@
 
             <div class="filterEntries">
                 <div class="entries">
-                    Show <select name="showAmount" id="table_size" onchange="selectAmount(this)">
+                    Show <select name="showAmount" id="table_size">
                         <option value="10">10</option>
                         <option value="20">20</option>
                         <option value="50">50</option>
@@ -38,7 +38,7 @@
             </div>
 
             <div class="addMemberBtn">
-                <button onclick="showFrom()">New member</button>
+                <button>New member</button>
             </div>
 
         </header>
@@ -81,13 +81,8 @@
         <footer>
             <span class="showEntries">Showing {{fromEntry}} to {{toEntry}} of {{totalEntries}} entries</span>
             <div class="pagination">
-                <!-- <button>Prev</button>
-                <button class="active">1</button>
-                <button>2</button>
-                <button>3</button>
-                <button>4</button>
-                <button>5</button>
-                <button>Next</button> -->
+                <button onclick="prevPage()">Prev</button>
+                <button onclick="nextPage()">Next</button>
             </div>
         </footer>
     </div>
@@ -118,7 +113,7 @@
                                 <input type="number" name="" id="id" required>
                             </div>
 
-                            <div class="form_control">
+                            <div class="form_control" style="display: flex;">
                                 <label for="sdate">Start Date:</label>
                                 <input type="date" name="" id="sdate" required>
                             </div>
@@ -169,12 +164,25 @@
     </div>
 
     <script>
-        function selectAmount(ans) {
-            console.log("Hi")
-            console.log(ans)
+        function nextPage(){
+            let amountValue = document.querySelector("#table_size").value;
+            let fromIndx = {{fromEntry}};
+            let toIndx = {{toEntry}};
+            console.log(amountValue);
+            console.log(fromIndx);
+            console.log(toIndx);
+            window.location = `/nextpage/${amountValue}/${fromIndx}/${toIndx}`
+            console.log("nextPage..");
         }
-        function showFrom() {
-            console.log("Working..")
+        function prevPage(){
+            let amountValue = document.querySelector("#table_size").value;
+            let fromIndx = {{fromEntry}};
+            let toIndx = {{toEntry}};
+            console.log(amountValue)
+            console.log(fromIndx);
+            console.log(toIndx);
+            window.location = `/previuspage/${amountValue}/${fromIndx}/${toIndx}`
+            console.log("prevPage..");
         }
     </script>
     <script src="{% static 'indx.js' %}"></script>

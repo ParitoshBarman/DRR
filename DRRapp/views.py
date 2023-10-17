@@ -57,10 +57,6 @@ def updateOrUpdate(request):
         redirect("/")
 
 def nextPage(request, showAmount, fromEntry, toEntry):
-    showAmount = request.POST.get('showAmount')
-    fromEntry = request.POST.get('fromEntry')
-    toEntry = request.POST.get('toEntry')
-
     newfromEntry = toEntry
     newtoEntry = toEntry+showAmount
 
@@ -73,10 +69,6 @@ def nextPage(request, showAmount, fromEntry, toEntry):
     return render(request, 'drr.html', sendData)
 
 def previusPage(request, showAmount, fromEntry, toEntry):
-    showAmount = request.POST.get('showAmount')
-    fromEntry = request.POST.get('fromEntry')
-    toEntry = request.POST.get('toEntry')
-
     newfromEntry = fromEntry-showAmount
     if newfromEntry<0:
         newfromEntry=0
