@@ -29,10 +29,8 @@ def index(request):
     return render(request, 'drr.html', sendData)
     
 
-def updateOrUpdate(request):
+def savedata(request):
     if request.method == 'POST':
-        slID = request.POST.get('slID')
-        action = request.POST.get('action')
         startDate = request.POST.get('startDate')
         endDate = request.POST.get('endDate')
         month_year = request.POST.get('month_year')
@@ -40,21 +38,9 @@ def updateOrUpdate(request):
         numberOfDays = request.POST.get('numberOfDays')
         leadCount = request.POST.get('leadCount')
         expectedDrr = request.POST.get('expectedDrr')
-        try:
-            dbDataUpd = DRRdb.objects.get(slID=slID)
-            dbDataUpd.action = action
-            dbDataUpd.startDate = startDate
-            dbDataUpd.endDate = endDate
-            dbDataUpd.month_year = month_year
-            dbDataUpd.datesExcluded = datesExcluded
-            dbDataUpd.numberOfDays = numberOfDays
-            dbDataUpd.leadCount = leadCount
-            dbDataUpd.expectedDrr = expectedDrr
-            dbDataUpd.save()
-        except:
-            dbDataSave = DRRdb(action=action, startDate=startDate, endDate=endDate, month_year=month_year, datesExcluded=datesExcluded, numberOfDays=numberOfDays, leadCount=leadCount, expectedDrr=expectedDrr)
-            dbDataSave.save()
-        redirect("/")
+        dbDataSave = DRRdb(action="N/A",startDate=startDate, endDate=endDate, month_year=month_year, datesExcluded=datesExcluded, numberOfDays=numberOfDays, leadCount=leadCount, expectedDrr=expectedDrr)
+        dbDataSave.save()
+        return redirect("/")
 
 def nextPage(request, showAmount, fromEntry, toEntry):
     if toEntry<0:
@@ -83,3 +69,8 @@ def previusPage(request, showAmount, fromEntry, toEntry):
         'toEntry' : newfromEntry+len(DRRdb.objects.all()[newfromEntry:newtoEntry])-1
         }
     return render(request, 'drr.html', sendData)
+
+def deletdata(request, slID):
+    findData = DRRdb.objects.get(slID=slID)
+    findData.delete()
+    return redirect("/")

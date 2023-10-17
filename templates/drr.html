@@ -38,7 +38,7 @@
             </div>
 
             <div class="addMemberBtn">
-                <button>New member</button>
+                <button onclick="hideHoga()">Add New</button>
             </div>
 
         </header>
@@ -62,15 +62,35 @@
                 </tr>
             </thead>
             <tbody class="userInfo">
-                <tr>
-                    <form action="/" >
+                <tr style="border: 2px solid white;" id="smdForm" class="heddnn">
+                    <form action="/savedata" method="post">
+                        {% csrf_token %}
                         <td></td>  <!-- Is line pe Yeha per kuch mat dena ok jeisa hai eisa hi rakhna ok -->
                         <td>
-                            <input type="text" placeholder="Hi Dosto...2">
+                                <input type="date" name="startDate" id="sdate" required>
                         </td>
                         <td>
-                            <input type="text" placeholder="Hi Dosto...3">
+                            <input type="date" name="endDate" id="edate" required>
                         </td>    
+                        <td>
+                            <input type="number" name="month_year" id="monthyear" required style="width: 90px;">
+                        </td>    
+                        <td>
+                            <input type="text" name="datesExcluded" id="datexu" required style="width: 90px;">
+                        </td>    
+                        <td>
+                            <input type="number" name="numberOfDays" id="nofdays" required style="width: 90px;">
+                        </td>    
+                        <td>
+                            <input type="number" name="leadCount" id="leadcnt" required style="width: 90px;">
+                        </td>    
+                        <td>
+                            <input type="number" name="expectedDrr" id="expDRR" required style="width: 90px;">
+                        </td>
+                        <td></td>
+                        <td>
+                            <button type="submit" style="padding: 10px;border: none;width: 70px;" class="hovr">Save</button>
+                        </td>
                     </form>
                 </tr>
                 {% for DRRdbElement in DRRdb %}
@@ -84,7 +104,7 @@
                     <td>{{DRRdbElement.leadCount}}</td>
                     <td>{{DRRdbElement.expectedDrr}}</td>
                     <td>{{DRRdbElement.lastUpdatedDate}} {{DRRdbElement.lastUpdatedTime}}</td>
-                    <td><a href="/delete/{{DRRdbElement.slID}}">Delete</a></td>
+                    <td><a href="/deletdata/{{DRRdbElement.slID}}" class="deletBtn">Delete</a></td>
                 </tr>
                 {% endfor %}
             </tbody>
@@ -121,8 +141,11 @@
             window.location = `/previuspage/${Math.abs(amountValue)}/${Math.abs(fromIndx)}/${Math.abs(toIndx)}`
             console.log("prevPage..");
         }
+        function hideHoga(){
+            let newMemberButton = document.getElementById("smdForm");
+            newMemberButton.classList.toggle("heddnn")
+        }
     </script>
-    <script src="{% static 'indx.js' %}"></script>
 </body>
 
 </html>

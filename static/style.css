@@ -14,6 +14,10 @@
     --red1: #902e31;
 }
 
+.heddnn{
+    display: none;
+}
+
 *{
     margin: 0;
     padding: 0;
@@ -26,7 +30,7 @@ body{
     /* flex-direction: column; */
     justify-content: center;
     align-items: flex-start;
-    min-height: 100vh;
+    min-height: 100%;
     background: linear-gradient(var(--red1) 50%, var(--dark2) 50%);
 }
 
@@ -357,4 +361,13 @@ input::-webkit-outer-spin-button{
     transform: scale(1);
     opacity: 1;
     visibility: visible;
+}
+
+.hovr:hover{
+    background-color: #902e31;
+}
+.deletBtn{
+    text-decoration: none;
+    color: red;
+    font-weight: 600;
 }
