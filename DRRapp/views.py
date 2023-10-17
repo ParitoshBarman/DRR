@@ -57,6 +57,8 @@ def updateOrUpdate(request):
         redirect("/")
 
 def nextPage(request, showAmount, fromEntry, toEntry):
+    if toEntry<0:
+        toEntry = 10
     newfromEntry = toEntry
     newtoEntry = toEntry+showAmount
 

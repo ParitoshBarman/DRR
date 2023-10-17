@@ -171,7 +171,7 @@
             console.log(amountValue);
             console.log(fromIndx);
             console.log(toIndx);
-            window.location = `/nextpage/${amountValue}/${fromIndx}/${toIndx}`
+            window.location = `/nextpage/${Math.abs(amountValue)}/${Math.abs(fromIndx)}/${Math.abs(toIndx)}`
             console.log("nextPage..");
         }
         function prevPage(){
@@ -181,7 +181,7 @@
             console.log(amountValue)
             console.log(fromIndx);
             console.log(toIndx);
-            window.location = `/previuspage/${amountValue}/${fromIndx}/${toIndx}`
+            window.location = `/previuspage/${Math.abs(amountValue)}/${Math.abs(fromIndx)}/${Math.abs(toIndx)}`
             console.log("prevPage..");
         }
     </script>
