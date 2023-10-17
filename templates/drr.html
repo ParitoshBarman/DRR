@@ -47,6 +47,7 @@
         <table>
 
             <thead>
+                
                 <tr class="heading">
                     <th>Id</th>
                     <th>Start Date</th>
@@ -61,6 +62,17 @@
                 </tr>
             </thead>
             <tbody class="userInfo">
+                <tr>
+                    <form action="/" >
+                        <td></td>  <!-- Is line pe Yeha per kuch mat dena ok jeisa hai eisa hi rakhna ok -->
+                        <td>
+                            <input type="text" placeholder="Hi Dosto...2">
+                        </td>
+                        <td>
+                            <input type="text" placeholder="Hi Dosto...3">
+                        </td>    
+                    </form>
+                </tr>
                 {% for DRRdbElement in DRRdb %}
                 <tr class="heading">
                     <td>{{DRRdbElement.slID}}</td>
@@ -87,81 +99,6 @@
         </footer>
     </div>
 
-
-    <!--Popup Form-->
-
-    <div class="dark_bg">
-
-        <div class="popup">
-            <header>
-                <h2 class="modalTitle">Add Details</h2>
-                <button class="closeBtn">&times;</button>
-            </header>
-
-
-
-
-            <img src="./img/pic1.png" alt="" width="0" height="0" class="img">
-
-            <div class="body">
-                <form action="#" id="myForm">
-                    <div class="inputFieldContainer">
-
-                        <div class="nameField">
-                            <div class="form_control">
-                                <label for="id">ID:</label>
-                                <input type="number" name="" id="id" required>
-                            </div>
-
-                            <div class="form_control" style="display: flex;">
-                                <label for="sdate">Start Date:</label>
-                                <input type="date" name="" id="sdate" required>
-                            </div>
-                        </div>
-
-
-                        <div class="form_control">
-                            <label for="edate">End Date:</label>
-                            <input type="date" name="" id="edate" required>
-                        </div>
-
-                        <div class="form_control">
-                            <label for="monthyear">Month, Year:</label>
-                            <input type="number" name="" id="monthyear" required>
-                        </div>
-
-
-
-                        <div class="form_control">
-                            <label for="datexu">Dates Excluded:</label>
-                            <input type="text" name="" id="datexu" required>
-                        </div>
-
-                        <div class="form_control">
-                            <label for="nofdays">Number of Days:</label>
-                            <input type="number" name="" id="nofdays" required>
-                        </div>
-
-
-                        <div class="form_control">
-                            <label for="leadcnt">Lead Count:</label>
-                            <input type="number" name="" id="leadcnt" required>
-                        </div>
-
-                        <div class="form_control">
-                            <label for="expDRR">Expected DRR:</label>
-                            <input type="number" name="" id="expDRR" required>
-                        </div>
-                    </div>
-                </form>
-            </div>
-
-            <footer class="popupFooter">
-                <button form="myForm" class="submitBtn">Submit</button>
-            </footer>
-        </div>
-
-    </div>
 
     <script>
         function nextPage(){
